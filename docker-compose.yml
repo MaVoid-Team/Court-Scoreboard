@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  # React Frontend
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: court_scoreboard
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    environment:
+      - NODE_ENV=production
+    networks:
+      - court_scoreboard_network
+
+networks:
+  court_scoreboard_network:
+    driver: bridge
