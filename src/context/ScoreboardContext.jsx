@@ -10,6 +10,9 @@ export const initialState = {
   timer: 0,
   timerRunning: false,
   carouselImages: [],
+  players: [],
+  events: [],
+  lineups: { teamA: [], teamB: [] },
 }
 
 function loadState() {

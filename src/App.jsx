@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { ScoreboardProvider } from './context/ScoreboardContext'
 import ScoreboardDisplay from './components/ScoreboardDisplay'
 import AdminPanel from './components/AdminPanel'
+import PlayerManager from './components/PlayerManager'
 import './index.css'
 
 export default function App() {
@@ -11,6 +12,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<ScoreboardDisplay />} />
           <Route path="/admin" element={<AdminPanel />} />
+          <Route path="/admin/players" element={<PlayerManager />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </BrowserRouter>

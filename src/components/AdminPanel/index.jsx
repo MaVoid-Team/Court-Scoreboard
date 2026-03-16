@@ -3,6 +3,7 @@ import { useScoreboard, initialState } from '../../context/ScoreboardContext'
 import TeamControls from './TeamControls'
 import ScoreControls from './ScoreControls'
 import UploadControls from './UploadControls'
+import EventManager from '../EventManager'
 
 export default function AdminPanel() {
   const { state, updateState } = useScoreboard()
@@ -24,6 +25,7 @@ export default function AdminPanel() {
         <span className="admin-header-title">🏟 Court Scoreboard — Admin</span>
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
           <span className="admin-header-badge">Control Panel</span>
+          <Link to="/admin/players" className="view-display-link">👤 Players</Link>
           <Link to="/" className="view-display-link" target="_blank" rel="noopener noreferrer">
             Open Display ↗
           </Link>
@@ -59,6 +61,9 @@ export default function AdminPanel() {
               </div>
             </div>
           </div>
+
+          {/* Match Events — full width */}
+          <EventManager />
 
         </div>
       </div>

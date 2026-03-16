@@ -1,21 +1,17 @@
-export default function TeamScore({ team, teamKey }) {
+export default function TeamScore({ team, side }) {
   return (
-    <div className="team-row">
-      <div className="team-info">
+    <div className={`team-panel team-panel--${side}`}>
+      <div className="team-panel-logo-wrap">
         {team.logo ? (
-          <img
-            src={team.logo}
-            alt={`${team.name} logo`}
-            className="team-logo"
-          />
+          <img src={team.logo} alt={`${team.name} logo`} className="team-panel-logo" />
         ) : (
-          <div className="team-logo-placeholder">
+          <div className="team-panel-logo-placeholder">
             {team.name.charAt(0).toUpperCase()}
           </div>
         )}
-        <span className="team-name">{team.name}</span>
       </div>
-      <span className="team-score">{team.score}</span>
+      <span className="team-panel-score">{team.score}</span>
+      <span className="team-panel-name">{team.name}</span>
     </div>
   )
 }
