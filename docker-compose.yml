@@ -1,20 +1,20 @@
 version: '3.8'
 
 services:
-  # React Frontend
-  frontend:
+  scoreboard-app:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: court_scoreboard
+    container_name: scoreboard-app
     restart: unless-stopped
     ports:
-      - "80:80"
+      - "3443:3000"  # Map container port 3000 to host port 3001
+    networks:
+      - scoreboard-network
     environment:
       - NODE_ENV=production
-    networks:
-      - court_scoreboard_network
+      - HOSTNAME=0.0.0.0
 
 networks:
-  court_scoreboard_network:
+  scoreboard-network:
     driver: bridge
